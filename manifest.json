@@ -1,26 +1,50 @@
 {
   "short_name": "PwGen",
-  "name": "Secure Password Generator",
+  "name": "Secure Password Generator | Create Strong Passwords Online",
+  "description": "Generate secure, strong passwords and passphrases online. Our password generator creates cryptographically secure passwords checked against data breaches.",
   "icons": [
     {
-      "src": "./static/favicon.png",  
+      "src": "./static/favicon.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "./static/favicon.png",  
+      "src": "./static/favicon.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
-      "src": "./static/favicon.png",  
+      "src": "./static/favicon.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": "./",  
-  "scope": "./",      
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "theme_color": "#41436A",
-  "background_color": "#2A3850"
+  "orientation": "portrait-primary",
+  "theme_color": "#6366f1",
+  "background_color": "#ffffff",
+  "categories": ["security", "utilities", "productivity"],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "Generate Password",
+      "short_name": "Generate",
+      "description": "Quickly generate a secure password",
+      "url": "./",
+      "icons": [
+        {
+          "src": "./static/favicon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
 }

@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  pwgen:
+    image: ghcr.io/aaacoder-ds/pwgen:main
+    container_name: pwgen-app
+    restart: unless-stopped
+    ports:
+      - "5069:5069"
+    environment:
+      - NO_API_CHECK=false
+      - PW_LENGTH=12
+      - MULTI_GEN=true
+      - GENERATE_PP=true
+      - ROBOTS_ALLOW=true

@@ -1,20 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PwGen</title>
-    <meta name="description" content="Secure password generator">
-    <meta name="keywords" content="Secure, haveibeenpwned, password, password-generator, password generator">
-    <meta name="author" content="jocxfin">
+    
+    <!-- SEO Meta Tags -->
+    <title>Secure Password Generator | Create Strong Passwords Online | PwGen</title>
+    <meta name="description" content="Generate secure, strong passwords and passphrases online. Our password generator creates cryptographically secure passwords checked against data breaches. Free, fast, and secure.">
+    <meta name="keywords" content="password generator, secure password, strong password, random password, passphrase generator, online password tool, cybersecurity, password creator, safe password generator, encrypted password">
+    <meta name="author" content="AAACoder">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pwgen.aaacoder.xyz/">
+    <meta property="og:title" content="Secure Password Generator | Create Strong Passwords Online">
+    <meta property="og:description" content="Generate secure, strong passwords and passphrases online. Our password generator creates cryptographically secure passwords checked against data breaches.">
+    <meta property="og:image" content="https://pwgen.aaacoder.xyz/static/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pwgen.aaacoder.xyz/">
+    <meta property="twitter:title" content="Secure Password Generator | Create Strong Passwords Online">
+    <meta property="twitter:description" content="Generate secure, strong passwords and passphrases online. Our password generator creates cryptographically secure passwords checked against data breaches.">
+    <meta property="twitter:image" content="https://pwgen.aaacoder.xyz/static/og-image.png">
+    
+    <!-- Google Site Verification -->
     {% if google_site_verification %}
     <meta name="google-site-verification" content="{{ google_site_verification }}" />
     {% endif %}
-    <link rel="stylesheet" href="{{ base_path }}static/styles.css">  
-    <link rel="icon" href="{{ base_path }}static/favicon.png" type="image/png">  
-    <link rel="manifest" href="{{ base_path }}manifest.json">  
-    <meta name="theme-color" content="#2A3850">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://plausible.aaacoder.xyz">
+    <link rel="preconnect" href="https://acscdn.com">
+    <link rel="preconnect" href="https://haveibeenpwned.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ base_path }}static/styles.css">
+    <link rel="icon" href="{{ base_path }}static/favicon.png" type="image/png">
+    <link rel="manifest" href="{{ base_path }}manifest.json">
+    <meta name="theme-color" content="#6366f1">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Secure Password Generator",
+        "description": "Generate secure, strong passwords and passphrases online with breach checking",
+        "url": "https://pwgen.aaacoder.xyz/",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "AAACoder"
+        }
+    }
+    </script>
+    
     <script>
         window.BASE_PATH = "{{ base_path }}";
         if ('serviceWorker' in navigator) {
@@ -28,175 +76,279 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 id="header1">Generate a Secure Password</h1>
-        <div id="passwordOptions">
-            <div id="checkbox-wrapper">
-                <p>Include Uppercase Letters</p>
-                <div class="checkbox-kaare">
-                    <input class="tgl toggle-omena" type="checkbox" id="includeUppercase">
-                    <label class="tgl-btn" for="includeUppercase"></label>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1 class="main-title">
+                    <span class="title-icon">🔐</span>
+                    Secure Password Generator
+                </h1>
+                <p class="subtitle">Create cryptographically secure passwords and passphrases</p>
+                <div class="aaacoder-badge">
+                    <span>Part of</span>
+                    <a href="https://dash.aaacoder.xyz/" target="_blank" rel="noopener noreferrer" class="aaacoder-link">
+                        AAACoder Utility Tools
+                    </a>
                 </div>
             </div>
-            <div id="checkbox-wrapper">
-                <p>Include Digits</p>
-                <div class="checkbox-kaare">
-                    <input class="tgl toggle-omena" type="checkbox" id="includeDigits">
-                    <label class="tgl-btn" for="includeDigits"></label>
-                </div>
-            </div>
-            <div id="checkbox-wrapper">
-                <p>Include Special Characters</p>
-                <div class="checkbox-kaare">
-                    <input class="tgl toggle-omena" type="checkbox" id="includeSpecial">
-                    <label class="tgl-btn" for="includeSpecial"></label>
-                </div>
-            </div>
-            <div id="checkbox-wrapper">
-                <p>Exclude Homoglyphs</p>
-                <div class="checkbox-kaare">
-                    <input class="tgl toggle-omena" type="checkbox" id="excludeHomoglyphs">
-                    <label class="tgl-btn" for="excludeHomoglyphs"></label>
-                </div>
-            </div>
-            <div id="sliderContainer">
-                <label for="lengthSlider">Length: <span id="lengthValue"></span></label>
-                <input type="range" id="lengthSlider" name="length" min="1" max="69" value="">
-            </div>
-        </div>
-        <div id="passphraseOptions" style="display: none;">
-            <div id="checkbox-wrapper">
-                <p>Capitalize Words</p>
-                <div class="checkbox-kaare">
-                    <input class="tgl toggle-omena" type="checkbox" id="capitalizeWords">
-                    <label class="tgl-btn" for="capitalizeWords"></label>
-                </div>
-            </div>
-            <div id="checkbox-wrapper">
-                <p>Include Numbers</p>
-                <div class="checkbox-kaare">
-                    <input class="tgl toggle-omena" type="checkbox" id="includeNumbers">
-                    <label class="tgl-btn" for="includeNumbers"></label>
-                </div>
-            </div>
-            <div id="checkbox-wrapper">
-                <p>Include Special Characters</p>
-                <div class="checkbox-kaare">
-                    <input class="tgl toggle-omena" type="checkbox" id="includeSpecialChars">
-                    <label class="tgl-btn" for="includeSpecialChars"></label>
-                </div>
-            </div>
-            {% if no_lang %}
-            <div id="checkbox-wrapper" style="display: none !important;">
-            {% else %}
-            <div id="checkbox-wrapper">
-            {% endif %}
-                <label for="languageSelect">Language:</label>
-                <select id="languageSelect">
-                    <option value="en">English</option>
-                    <option value="fi">Finnish</option>
-                    <option value="fr">French</option>
-                    <option value="custom">Custom list</option>
-            {% if pp_settings.wordListLocal %}
-                    <option value="" selected disabled>Local list</option>
-            {% endif %}
-                </select>
-                <input type="text" id="customLanguage" placeholder="Enter custom url for text file" style="display: none;">
-            </div>
-            <div id="checkbox-wrapper">
-                <label for="separator">Separator:</label>
-                <select id="separator">
-                    <option value="dash">Dash</option>
-                    <option value="number">Random Number</option>
-                    <option value="special">Random Special Character</option>
-                    <option value="space">Space</option>
-                    <option value="custom">User Defined</option>
-                </select>
-                <input type="text" id="customSeparator" placeholder="Enter custom separator" style="display: none;">
-            </div>
-            {% set default_options = [3, 5, 6, 7, 9, 12, 16] %}
-            {% if pp_settings.max_word_length not in default_options %}
-              {% set default_options = default_options + [pp_settings.max_word_length] %}
-            {% endif %}
-            {% set default_options = default_options | sort %}
-            <div id="checkbox-wrapper">
-              <label for="maxWordLength">Max Word Length:</label>
-              <select id="maxWordLength">
-                {% for option in default_options %}
-                  <option value="{{ option }}" {% if option == pp_settings.max_word_length %}selected{% endif %}>
-                    {{ option }}
-                  </option>
-                {% endfor %}
-              </select>
-            </div>                
-            <div id="wordCountContainer">
-                <label for="wordCountSlider">Word Count: <span id="wordCountValue"></span></label>
-                <input type="range" id="wordCountSlider" name="wordCount" min="2" max="10" value="">
-            </div>
-        </div>
-        <div id="passphrase-wrapper">
-            <div id="checkbox-wrapper">
-                <p>Generate Passphrase</p>
-                <div class="checkbox-kaare">
-                    <input class="tgl toggle-omena" type="checkbox" id="passphraseToggle">
-                    <label class="tgl-btn" for="passphraseToggle"></label>
-                </div>
-            </div>
-        </div>
-        {% if multi_gen %}
-        <div id="password-container1">
-            <div class="parent">
-                <div id="multipw" class="multipw0"></div>
-                <div id="multipw" class="multipw1"></div>
-                <div id="multipw" class="multipw2"></div>
-                <div id="multipw" class="multipw3"></div>
-                <div id="multipw" class="multipw4"></div>
-                <div id="multipwcp" class="multipwcp0" onclick="copyPassword(0)">copy</div>
-                <div id="multipwcp" class="multipwcp1" onclick="copyPassword(1)">copy</div>
-                <div id="multipwcp" class="multipwcp2" onclick="copyPassword(2)">copy</div>
-                <div id="multipwcp" class="multipwcp3" onclick="copyPassword(3)">copy</div>
-                <div id="multipwcp" class="multipwcp4" onclick="copyPassword(4)">copy</div>
-            </div>
-        </div>
-        {% else %}
-        <div class="password-container" id="password-container" style="display: flex;">
-            <input type="text" id="password" oncopy="onCopy()" readonly>
-            <button id="copypwd" onclick="copyPassword(100)">copy password</button>
-        </div>
-        {% endif %}
+        </header>
 
-        {% if show_save_settings %}
-        <div id="checkbox-wrapper">
-            <p>Save settings</p>
-            <div class="checkbox-kaare">
-                <input class="tgl toggle-omena" type="checkbox" id="saveSettings">
-                <label class="tgl-btn" for="saveSettings"></label>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Password Options Section -->
+            <section class="options-section" id="passwordOptions">
+                <h2 class="section-title">Password Settings</h2>
+                <div class="options-grid">
+                    <div class="option-item">
+                        <label class="option-label">
+                            <span class="option-text">Include Uppercase Letters</span>
+                            <div class="toggle-switch">
+                                <input class="toggle-input" type="checkbox" id="includeUppercase">
+                                <label class="toggle-label" for="includeUppercase"></label>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="option-item">
+                        <label class="option-label">
+                            <span class="option-text">Include Digits</span>
+                            <div class="toggle-switch">
+                                <input class="toggle-input" type="checkbox" id="includeDigits">
+                                <label class="toggle-label" for="includeDigits"></label>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="option-item">
+                        <label class="option-label">
+                            <span class="option-text">Include Special Characters</span>
+                            <div class="toggle-switch">
+                                <input class="toggle-input" type="checkbox" id="includeSpecial">
+                                <label class="toggle-label" for="includeSpecial"></label>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="option-item">
+                        <label class="option-label">
+                            <span class="option-text">Exclude Homoglyphs</span>
+                            <div class="toggle-switch">
+                                <input class="toggle-input" type="checkbox" id="excludeHomoglyphs">
+                                <label class="toggle-label" for="excludeHomoglyphs"></label>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="slider-container">
+                    <label for="lengthSlider" class="slider-label">
+                        Password Length: <span id="lengthValue" class="slider-value">12</span>
+                    </label>
+                    <input type="range" id="lengthSlider" name="length" min="8" max="128" value="12" class="range-slider">
+                </div>
+            </section>
+
+            <!-- Passphrase Options Section -->
+            <section class="options-section" id="passphraseOptions" style="display: none;">
+                <h2 class="section-title">Passphrase Settings</h2>
+                <div class="options-grid">
+                    <div class="option-item">
+                        <label class="option-label">
+                            <span class="option-text">Capitalize Words</span>
+                            <div class="toggle-switch">
+                                <input class="toggle-input" type="checkbox" id="capitalizeWords">
+                                <label class="toggle-label" for="capitalizeWords"></label>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="option-item">
+                        <label class="option-label">
+                            <span class="option-text">Include Numbers</span>
+                            <div class="toggle-switch">
+                                <input class="toggle-input" type="checkbox" id="includeNumbers">
+                                <label class="toggle-label" for="includeNumbers"></label>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="option-item">
+                        <label class="option-label">
+                            <span class="option-text">Include Special Characters</span>
+                            <div class="toggle-switch">
+                                <input class="toggle-input" type="checkbox" id="includeSpecialChars">
+                                <label class="toggle-label" for="includeSpecialChars"></label>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="select-group">
+                    {% if not no_lang %}
+                    <div class="select-item">
+                        <label for="languageSelect" class="select-label">Language:</label>
+                        <select id="languageSelect" class="select-input">
+                            <option value="en">English</option>
+                            <option value="fi">Finnish</option>
+                            <option value="fr">French</option>
+                            <option value="custom">Custom list</option>
+                            {% if pp_settings.wordListLocal %}
+                            <option value="" selected disabled>Local list</option>
+                            {% endif %}
+                        </select>
+                        <input type="text" id="customLanguage" placeholder="Enter custom URL for text file" class="custom-input" style="display: none;">
+                    </div>
+                    {% endif %}
+                    
+                    <div class="select-item">
+                        <label for="separator" class="select-label">Separator:</label>
+                        <select id="separator" class="select-input">
+                            <option value="dash">Dash</option>
+                            <option value="number">Random Number</option>
+                            <option value="special">Random Special Character</option>
+                            <option value="space">Space</option>
+                            <option value="custom">User Defined</option>
+                        </select>
+                        <input type="text" id="customSeparator" placeholder="Enter custom separator" class="custom-input" style="display: none;">
+                    </div>
+                    
+                    <div class="select-item">
+                        <label for="maxWordLength" class="select-label">Max Word Length:</label>
+                        <select id="maxWordLength" class="select-input">
+                            {% set default_options = [3, 5, 6, 7, 9, 12, 16] %}
+                            {% if pp_settings.max_word_length not in default_options %}
+                              {% set default_options = default_options + [pp_settings.max_word_length] %}
+                            {% endif %}
+                            {% set default_options = default_options | sort %}
+                            {% for option in default_options %}
+                              <option value="{{ option }}" {% if option == pp_settings.max_word_length %}selected{% endif %}>
+                                {{ option }}
+                              </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="slider-container">
+                    <label for="wordCountSlider" class="slider-label">
+                        Word Count: <span id="wordCountValue" class="slider-value">4</span>
+                    </label>
+                    <input type="range" id="wordCountSlider" name="wordCount" min="2" max="10" value="4" class="range-slider">
+                </div>
+            </section>
+
+            <!-- Mode Toggle -->
+            <section class="mode-section">
+                <div class="mode-toggle">
+                    <label class="mode-label">
+                        <span class="mode-text">Generate Passphrase</span>
+                        <div class="toggle-switch toggle-switch-large">
+                            <input class="toggle-input" type="checkbox" id="passphraseToggle">
+                            <label class="toggle-label" for="passphraseToggle"></label>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Password Display Section -->
+            {% if multi_gen %}
+            <section class="password-section">
+                <div class="multi-password-grid">
+                    <div class="password-item" id="multipw" class="multipw0"></div>
+                    <div class="password-item" id="multipw" class="multipw1"></div>
+                    <div class="password-item" id="multipw" class="multipw2"></div>
+                    <div class="password-item" id="multipw" class="multipw3"></div>
+                    <div class="password-item" id="multipw" class="multipw4"></div>
+                    <button class="copy-btn" id="multipwcp" class="multipwcp0" onclick="copyPassword(0)">Copy</button>
+                    <button class="copy-btn" id="multipwcp" class="multipwcp1" onclick="copyPassword(1)">Copy</button>
+                    <button class="copy-btn" id="multipwcp" class="multipwcp2" onclick="copyPassword(2)">Copy</button>
+                    <button class="copy-btn" id="multipwcp" class="multipwcp3" onclick="copyPassword(3)">Copy</button>
+                    <button class="copy-btn" id="multipwcp" class="multipwcp4" onclick="copyPassword(4)">Copy</button>
+                </div>
+            </section>
+            {% else %}
+            <section class="password-section">
+                <div class="single-password-container">
+                    <div class="password-display">
+                        <input type="text" id="password" readonly class="password-input">
+                        <button id="copypwd" onclick="copyPassword(100)" class="copy-button">Copy</button>
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+
+            <!-- Settings Save -->
+            {% if show_save_settings %}
+            <section class="settings-section">
+                <div class="option-item">
+                    <label class="option-label">
+                        <span class="option-text">Save Settings</span>
+                        <div class="toggle-switch">
+                            <input class="toggle-input" type="checkbox" id="saveSettings">
+                            <label class="toggle-label" for="saveSettings"></label>
+                        </div>
+                    </label>
+                </div>
+            </section>
+            {% endif %}
+
+            <!-- Generate Button -->
+            <section class="generate-section">
+                <button id="refreshpw" class="generate-button">
+                    <span class="button-text">Generate Password</span>
+                    <div class="button-loader"></div>
+                </button>
+            </section>
+
+            <!-- Security Info -->
+            <section class="security-section">
+                <div class="security-info">
+                    {% if no_api_check %}
+                    <div class="info-message info-warning">
+                        <span class="info-icon">⚠️</span>
+                        <p>Offline mode enabled. No checks are performed against haveibeenpwned-API.</p>
+                    </div>
+                    {% else %}
+                    <div class="info-message info-success">
+                        <span class="info-icon">🔒</span>
+                        <p>
+                            All passwords and passphrases are cross-referenced with 
+                            <a href="https://haveibeenpwned.com" target="_blank" rel="noopener noreferrer" class="security-link">
+                                haveibeenpwned
+                            </a>-API to ensure they haven't been compromised in past data breaches.
+                        </p>
+                    </div>
+                    {% endif %}
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <p class="footer-text">
+                        Secure password generator by 
+                        <a href="https://github.com/jocxfin/pwgen" target="_blank" rel="noopener noreferrer" class="footer-link">jocxFIN</a>
+                    </p>
+                </div>
+                <div class="footer-seo">
+                    <p class="seo-keywords">
+                        <strong>Related:</strong> secure password generator, strong password creator, random password maker, 
+                        passphrase generator, online password tool, cybersecurity password generator, encrypted password creator, 
+                        safe password generator online, random passphrase maker, secure password generator 2024, 
+                        password strength checker, cryptographically secure passwords, data breach checker
+                    </p>
+                </div>
             </div>
-        </div>
-        {% endif %}
-        <div id="checkbox-wrapper" class="buttonwrapper">
-            <button id="refreshpw" class="button">Generate</button>
-        </div>
-        <div id="passphrase-wrapper" class="infotext-wrapper">
-            <div id="checkbox-wrapper">
-                {% if no_api_check %}
-                <p id="infotext">Offline mode enabled. No checks are ran against haveibeenpwned-API.</p>
-                {% else %}
-                <p id="infotext">
-                    All passwords and passphrases created are cross-referenced with 
-                    <a id="apilink" href="https://haveibeenpwned.com" target="_blank" rel="noopener noreferrer">
-                        haveibeenpwned
-                    </a>-API to guarantee they have not been compromised in past data breaches.
-                </p>
-                {% endif %}
-            </div>
-        </div>
-        <footer>
-            <p>Simple password generator made by <a href="https://github.com/jocxfin/pwgen" target="_blank" rel="noopener noreferrer">jocxFIN</a></p>
         </footer>
     </div>
+
+    <!-- Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Initialize form values
             document.getElementById('lengthSlider').value = {{ pw_settings.length }};
             document.getElementById('includeUppercase').checked = {{ pw_settings.include_uppercase | tojson }};
             document.getElementById('includeDigits').checked = {{ pw_settings.include_digits | tojson }};
@@ -225,15 +377,27 @@
             if (LanguageValue === 'custom') {
                 document.getElementById('customLanguage').style.display = 'block';
             }
+            
+            // Event listeners
             document.getElementById('languageSelect').onchange = function () {
                 document.getElementById('customLanguage').style.display = this.value === 'custom' ? 'block' : 'none';
             };
 
+            // Initialize based on mode
             if (document.getElementById('passphraseToggle').checked) {
                 togglePassphraseOptions();
             } else {
                 generatePassword();
             }
+        });
+    </script>
+    
+    <!-- Tracking Scripts -->
+    <script defer data-domain="pwgen.aaacoder.xyz" src="https://plausible.aaacoder.xyz/js/script.js"></script>
+    <script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+    <script type="text/javascript">
+        aclib.runAutoTag({
+            zoneId: 'xwmjbxvcqb',
         });
     </script>
     <script src="{{ base_path }}static/index.js"></script>

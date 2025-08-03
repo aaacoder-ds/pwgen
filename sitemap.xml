@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <!-- Main Pages -->
+    <url>
+        <loc>https://pwgen.aaacoder.xyz/</loc>
+        <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Static Resources -->
+    <url>
+        <loc>https://pwgen.aaacoder.xyz/manifest.json</loc>
+        <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+    </url>
+    
+    <url>
+        <loc>https://pwgen.aaacoder.xyz/static/styles.css</loc>
+        <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.2</priority>
+    </url>
+    
+    <url>
+        <loc>https://pwgen.aaacoder.xyz/static/index.js</loc>
+        <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.2</priority>
+    </url>
+    
+    <url>
+        <loc>https://pwgen.aaacoder.xyz/static/favicon.png</loc>
+        <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    
+    <url>
+        <loc>https://pwgen.aaacoder.xyz/service-worker.js</loc>
+        <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    
+    <!-- API Endpoints (for crawlers) -->
+    <url>
+        <loc>https://pwgen.aaacoder.xyz/generate-password</loc>
+        <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    
+    <!-- Robots.txt -->
+    <url>
+        <loc>https://pwgen.aaacoder.xyz/robots.txt</loc>
+        <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.1</priority>
+    </url>
+    
+</urlset>
