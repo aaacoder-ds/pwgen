@@ -117,9 +117,15 @@ async function generatePassword() {
       // Multi-password mode
       data.passwords.forEach((pwd, index) => {
         if (index < 5) {
-          const element = document.querySelector(`.multipw${index}`);
+          const element = document.getElementById(`multipw${index}`);
           if (element) {
-            element.textContent = pwd;
+            element.value = pwd;
+            // Add animation to the row
+            const row = element.closest('.password-row');
+            if (row) {
+              row.classList.add('generated');
+              setTimeout(() => row.classList.remove('generated'), 300);
+            }
           }
         }
       });
@@ -182,9 +188,9 @@ async function copyPassword(index) {
     password = passwordInput?.value || '';
     button = document.querySelector('.copy-button');
   } else {
-    const element = document.querySelector(`.multipw${index}`);
-    password = element?.textContent || '';
-    button = document.querySelector(`.multipwcp${index}`);
+    const element = document.getElementById(`multipw${index}`);
+    password = element?.value || '';
+    button = element?.nextElementSibling;
   }
 
   if (!password) {

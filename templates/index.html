@@ -254,24 +254,36 @@
             <!-- Password Display Section -->
             {% if multi_gen %}
             <section class="password-section">
-                <div class="multi-password-grid">
-                    <div class="password-item" id="multipw" class="multipw0"></div>
-                    <div class="password-item" id="multipw" class="multipw1"></div>
-                    <div class="password-item" id="multipw" class="multipw2"></div>
-                    <div class="password-item" id="multipw" class="multipw3"></div>
-                    <div class="password-item" id="multipw" class="multipw4"></div>
-                    <button class="copy-btn" id="multipwcp" class="multipwcp0" onclick="copyPassword(0)">Copy</button>
-                    <button class="copy-btn" id="multipwcp" class="multipwcp1" onclick="copyPassword(1)">Copy</button>
-                    <button class="copy-btn" id="multipwcp" class="multipwcp2" onclick="copyPassword(2)">Copy</button>
-                    <button class="copy-btn" id="multipwcp" class="multipwcp3" onclick="copyPassword(3)">Copy</button>
-                    <button class="copy-btn" id="multipwcp" class="multipwcp4" onclick="copyPassword(4)">Copy</button>
+                <h3 class="password-section-title">Generated Passwords</h3>
+                <div class="multi-password-list">
+                    <div class="password-row">
+                        <input type="text" id="multipw0" class="multi-password-input" readonly>
+                        <button class="copy-btn" onclick="copyPassword(0)">Copy</button>
+                    </div>
+                    <div class="password-row">
+                        <input type="text" id="multipw1" class="multi-password-input" readonly>
+                        <button class="copy-btn" onclick="copyPassword(1)">Copy</button>
+                    </div>
+                    <div class="password-row">
+                        <input type="text" id="multipw2" class="multi-password-input" readonly>
+                        <button class="copy-btn" onclick="copyPassword(2)">Copy</button>
+                    </div>
+                    <div class="password-row">
+                        <input type="text" id="multipw3" class="multi-password-input" readonly>
+                        <button class="copy-btn" onclick="copyPassword(3)">Copy</button>
+                    </div>
+                    <div class="password-row">
+                        <input type="text" id="multipw4" class="multi-password-input" readonly>
+                        <button class="copy-btn" onclick="copyPassword(4)">Copy</button>
+                    </div>
                 </div>
             </section>
             {% else %}
             <section class="password-section">
+                <h3 class="password-section-title">Generated Password</h3>
                 <div class="single-password-container">
                     <div class="password-display">
-                        <input type="text" id="password" readonly class="password-input">
+                        <input type="text" id="password" readonly class="password-input" placeholder="Your password will appear here">
                         <button id="copypwd" onclick="copyPassword(100)" class="copy-button">Copy</button>
                     </div>
                 </div>
