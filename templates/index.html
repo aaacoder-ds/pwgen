@@ -78,40 +78,7 @@
             cursor: pointer;
             min-width: 80px;
         }
-        .password-row {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            padding: 0.75rem;
-            min-height: 3.5rem;
-        }
-        .multi-password-input {
-            flex: 1;
-            padding: 0.75rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 0.5rem;
-            background: #ffffff;
-            color: #1e293b;
-            font-family: 'Courier New', monospace;
-            font-size: 0.875rem;
-            text-align: center;
-            min-height: 2.5rem;
-        }
-        .copy-btn {
-            padding: 0.5rem 1rem;
-            background: #10b981;
-            color: white;
-            border: none;
-            border-radius: 0.5rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-            min-width: 60px;
-            height: 2.5rem;
-        }
+
     </style>
     
     <!-- Structured Data -->
@@ -325,43 +292,15 @@
             </section>
 
             <!-- Password Display Section -->
-            {% if multi_gen %}
-            <section class="password-section">
-                <h3 class="password-section-title">Generated Passwords</h3>
-                <div class="multi-password-list">
-                    <div class="password-row">
-                        <input type="text" id="multipw0" class="multi-password-input" readonly>
-                        <button class="copy-btn" onclick="copyPassword(0)">Copy</button>
-                    </div>
-                    <div class="password-row">
-                        <input type="text" id="multipw1" class="multi-password-input" readonly>
-                        <button class="copy-btn" onclick="copyPassword(1)">Copy</button>
-                    </div>
-                    <div class="password-row">
-                        <input type="text" id="multipw2" class="multi-password-input" readonly>
-                        <button class="copy-btn" onclick="copyPassword(2)">Copy</button>
-                    </div>
-                    <div class="password-row">
-                        <input type="text" id="multipw3" class="multi-password-input" readonly>
-                        <button class="copy-btn" onclick="copyPassword(3)">Copy</button>
-                    </div>
-                    <div class="password-row">
-                        <input type="text" id="multipw4" class="multi-password-input" readonly>
-                        <button class="copy-btn" onclick="copyPassword(4)">Copy</button>
-                    </div>
-                </div>
-            </section>
-            {% else %}
             <section class="password-section">
                 <h3 class="password-section-title">Generated Password</h3>
                 <div class="single-password-container">
                     <div class="password-display">
                         <input type="text" id="password" readonly class="password-input" placeholder="Your password will appear here">
-                        <button id="copypwd" onclick="copyPassword(100)" class="copy-button">Copy</button>
+                        <button id="copypwd" onclick="copyPassword()" class="copy-button">Copy</button>
                     </div>
                 </div>
             </section>
-            {% endif %}
 
             <!-- Settings Save -->
             {% if show_save_settings %}

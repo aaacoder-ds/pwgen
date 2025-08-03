@@ -493,91 +493,7 @@ body {
     margin-top: 0;
 }
 
-/* Multi Password List */
-.multi-password-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3, 0.75rem);
-    max-width: 600px;
-    margin: 0 auto;
-}
 
-.password-row {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3, 0.75rem);
-    background: var(--bg-secondary, #f8fafc);
-    border: 1px solid var(--border-light, #e2e8f0);
-    border-radius: var(--radius-lg, 0.75rem);
-    padding: var(--space-3, 0.75rem);
-    transition: all var(--transition-fast, 150ms ease-in-out);
-    min-height: 3.5rem;
-}
-
-.password-row:hover {
-    border-color: var(--primary-color);
-    box-shadow: var(--shadow-sm);
-}
-
-.password-row.generated {
-    animation: passwordGenerated 0.3s ease-out;
-}
-
-@keyframes passwordGenerated {
-    0% {
-        opacity: 0.7;
-        transform: translateY(-5px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.multi-password-input {
-    flex: 1;
-    padding: var(--space-3, 0.75rem);
-    border: 1px solid var(--border-medium, #cbd5e1);
-    border-radius: var(--radius-md, 0.5rem);
-    background: var(--bg-primary, #ffffff);
-    color: var(--text-primary, #1e293b);
-    font-family: var(--font-mono, 'Courier New', monospace);
-    font-size: 0.875rem;
-    text-align: center;
-    transition: border-color var(--transition-fast, 150ms ease-in-out);
-    min-height: 2.5rem;
-}
-
-.multi-password-input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgb(99 102 241 / 0.1);
-}
-
-.copy-btn {
-    padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
-    background: var(--secondary-color, #10b981);
-    color: white;
-    border: none;
-    border-radius: var(--radius-md, 0.5rem);
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--transition-fast, 150ms ease-in-out);
-    white-space: nowrap;
-    min-width: 60px;
-    height: 2.5rem;
-}
-
-.copy-btn:hover {
-    background: #059669;
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
-}
-
-.copy-btn:active {
-    transform: translateY(0);
-}
 
 /* Settings Section */
 .settings-section {
@@ -783,18 +699,7 @@ body {
         gap: var(--space-3);
     }
     
-    .password-row {
-        flex-direction: column;
-        gap: var(--space-2);
-    }
-    
-    .copy-btn {
-        width: 100%;
-    }
-    
-    .multi-password-input {
-        width: 100%;
-    }
+
 }
 
 @media (max-width: 480px) {
@@ -851,16 +756,14 @@ select:focus-visible {
 }
 
 /* Ensure password inputs are always visible */
-.password-input,
-.multi-password-input {
+.password-input {
     display: block !important;
     width: 100% !important;
     box-sizing: border-box !important;
 }
 
 /* Ensure copy buttons are always visible */
-.copy-button,
-.copy-btn {
+.copy-button {
     display: inline-block !important;
     box-sizing: border-box !important;
 }

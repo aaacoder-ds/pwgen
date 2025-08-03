@@ -113,28 +113,10 @@ async function generatePassword() {
 
     const data = await response.json();
 
-    if (data.passwords && Array.isArray(data.passwords)) {
-      // Multi-password mode
-      data.passwords.forEach((pwd, index) => {
-        if (index < 5) {
-          const element = document.getElementById(`multipw${index}`);
-          if (element) {
-            element.value = pwd;
-            // Add animation to the row
-            const row = element.closest('.password-row');
-            if (row) {
-              row.classList.add('generated');
-              setTimeout(() => row.classList.remove('generated'), 300);
-            }
-          }
-        }
-      });
-    } else {
-      // Single password mode
-      if (passwordInput) {
-        passwordInput.value = data.password;
-        scrambleAnimation(data.password);
-      }
+    // Single password mode only
+    if (passwordInput && data.password) {
+      passwordInput.value = data.password;
+      scrambleAnimation(data.password);
     }
 
     // Show success feedback
@@ -180,18 +162,9 @@ function scrambleAnimation(finalPassword) {
 }
 
 // Enhanced copy password function with better feedback
-async function copyPassword(index) {
-  let password;
-  let button;
-  
-  if (index === 100) {
-    password = passwordInput?.value || '';
-    button = document.querySelector('.copy-button');
-  } else {
-    const element = document.getElementById(`multipw${index}`);
-    password = element?.value || '';
-    button = element?.nextElementSibling;
-  }
+async function copyPassword() {
+  const password = passwordInput?.value || '';
+  const button = document.querySelector('.copy-button');
 
   if (!password) {
     showFeedback('No password to copy!', 'error');
@@ -463,7 +436,7 @@ window.addEventListener('load', () => {
     // Ctrl/Cmd + C to copy password (when password input is focused)
     if ((e.ctrlKey || e.metaKey) && e.key === 'c' && document.activeElement === passwordInput) {
       e.preventDefault();
-      copyPassword(100);
+      copyPassword();
     }
   });
   

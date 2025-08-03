@@ -10,6 +10,6 @@ services:
     environment:
       - NO_API_CHECK=false
       - PW_LENGTH=12
-      - MULTI_GEN=true
+      - MULTI_GEN=false
       - GENERATE_PP=true
       - ROBOTS_ALLOW=true
