@@ -424,11 +424,12 @@ body {
 
 /* Password Section */
 .password-section {
-    background: var(--bg-primary);
-    border-radius: var(--radius-xl);
-    padding: var(--space-8);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--border-light);
+    background: var(--bg-primary, #ffffff);
+    border-radius: var(--radius-xl, 1rem);
+    padding: var(--space-8, 2rem);
+    box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+    border: 1px solid var(--border-light, #e2e8f0);
+    margin-bottom: 1rem;
 }
 
 .single-password-container {
@@ -440,20 +441,21 @@ body {
     position: relative;
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    gap: var(--space-3, 0.75rem);
 }
 
 .password-input {
     flex: 1;
-    padding: var(--space-4);
-    border: 2px solid var(--border-medium);
-    border-radius: var(--radius-lg);
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    font-family: var(--font-mono);
+    padding: var(--space-4, 1rem);
+    border: 2px solid var(--border-medium, #cbd5e1);
+    border-radius: var(--radius-lg, 0.75rem);
+    background: var(--bg-secondary, #f8fafc);
+    color: var(--text-primary, #1e293b);
+    font-family: var(--font-mono, 'Courier New', monospace);
     font-size: 1.125rem;
     text-align: center;
-    transition: border-color var(--transition-fast);
+    transition: border-color var(--transition-fast, 150ms ease-in-out);
+    min-height: 3rem;
 }
 
 .password-input:focus {
@@ -463,15 +465,16 @@ body {
 }
 
 .copy-button {
-    padding: var(--space-4) var(--space-6);
-    background: var(--primary-color);
+    padding: var(--space-4, 1rem) var(--space-6, 1.5rem);
+    background: var(--primary-color, #6366f1);
     color: white;
     border: none;
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-lg, 0.75rem);
     font-weight: 600;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-fast, 150ms ease-in-out);
     white-space: nowrap;
+    min-width: 80px;
 }
 
 .copy-button:hover {
@@ -484,16 +487,17 @@ body {
 .password-section-title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: var(--space-4);
+    color: var(--text-primary, #1e293b);
+    margin-bottom: var(--space-4, 1rem);
     text-align: center;
+    margin-top: 0;
 }
 
 /* Multi Password List */
 .multi-password-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-3, 0.75rem);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -501,12 +505,13 @@ body {
 .password-row {
     display: flex;
     align-items: center;
-    gap: var(--space-3);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-lg);
-    padding: var(--space-3);
-    transition: all var(--transition-fast);
+    gap: var(--space-3, 0.75rem);
+    background: var(--bg-secondary, #f8fafc);
+    border: 1px solid var(--border-light, #e2e8f0);
+    border-radius: var(--radius-lg, 0.75rem);
+    padding: var(--space-3, 0.75rem);
+    transition: all var(--transition-fast, 150ms ease-in-out);
+    min-height: 3.5rem;
 }
 
 .password-row:hover {
@@ -531,15 +536,16 @@ body {
 
 .multi-password-input {
     flex: 1;
-    padding: var(--space-3);
-    border: 1px solid var(--border-medium);
-    border-radius: var(--radius-md);
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: var(--font-mono);
+    padding: var(--space-3, 0.75rem);
+    border: 1px solid var(--border-medium, #cbd5e1);
+    border-radius: var(--radius-md, 0.5rem);
+    background: var(--bg-primary, #ffffff);
+    color: var(--text-primary, #1e293b);
+    font-family: var(--font-mono, 'Courier New', monospace);
     font-size: 0.875rem;
     text-align: center;
-    transition: border-color var(--transition-fast);
+    transition: border-color var(--transition-fast, 150ms ease-in-out);
+    min-height: 2.5rem;
 }
 
 .multi-password-input:focus {
@@ -549,17 +555,18 @@ body {
 }
 
 .copy-btn {
-    padding: var(--space-2) var(--space-4);
-    background: var(--secondary-color);
+    padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
+    background: var(--secondary-color, #10b981);
     color: white;
     border: none;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 0.5rem);
     font-size: 0.875rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-fast, 150ms ease-in-out);
     white-space: nowrap;
     min-width: 60px;
+    height: 2.5rem;
 }
 
 .copy-btn:hover {
@@ -826,8 +833,36 @@ body {
 button:focus-visible,
 input:focus-visible,
 select:focus-visible {
-    outline: 2px solid var(--primary-color);
+    outline: 2px solid var(--primary-color, #6366f1);
     outline-offset: 2px;
+}
+
+/* Fallback styles for password display */
+.password-input:focus {
+    outline: none;
+    border-color: var(--primary-color, #6366f1);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.multi-password-input:focus {
+    outline: none;
+    border-color: var(--primary-color, #6366f1);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Ensure password inputs are always visible */
+.password-input,
+.multi-password-input {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure copy buttons are always visible */
+.copy-button,
+.copy-btn {
+    display: inline-block !important;
+    box-sizing: border-box !important;
 }
 
 /* High contrast mode support */
