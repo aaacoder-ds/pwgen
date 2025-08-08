@@ -89,4 +89,12 @@ def serve_manifest():
 def serve_sw():
     return send_file('service-worker.js', mimetype='application/javascript')
 
+@app.route(config.BASE_PATH + '/sitemap.xml')
+def serve_sitemap():
+    return send_file('sitemap.xml', mimetype='application/xml')
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html', base_path=config.BASE_PATH), 404
+
 app_asgi = WsgiToAsgi(app)

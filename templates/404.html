@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found</title>
+  <link rel="stylesheet" href="{{ base_path }}static/styles.css">
+  <link rel="icon" href="{{ base_path }}static/favicon.png" type="image/png">
+  <style>
+    .not-found-container { max-width: 720px; margin: 10vh auto; text-align: center; padding: 2rem; }
+    .not-found-title { font-size: 3rem; margin-bottom: 0.5rem; }
+    .not-found-subtitle { color: #64748b; margin-bottom: 1.5rem; }
+    .home-link { display: inline-block; padding: 0.75rem 1.25rem; background: #6366f1; color: #fff; border-radius: 0.5rem; text-decoration: none; font-weight: 600; }
+  </style>
+  <meta name="robots" content="noindex" />
+</head>
+<body>
+  <div class="not-found-container">
+    <h1 class="not-found-title">404</h1>
+    <p class="not-found-subtitle">The page you’re looking for doesn’t exist.</p>
+    <a class="home-link" href="{{ base_path }}">Go back home</a>
+  </div>
+</body>
+</html>
+
+
